@@ -14,16 +14,15 @@ function NewProfileUploader() {
     putNewProfile(image, fullName)
       .then((response) => {
         setResponseMessage(response.message);
-        setIsLoading(false);
+        
       })
       .catch((error) => {
-        setIsLoading(false);
         if (error.status === 400) {
           setResponseMessage(error.response.data.error_message);
         } else {
             console.log(error);
         }
-      });
+      }).finally(() =>(setIsLoading(false)));
   }
 
   return (

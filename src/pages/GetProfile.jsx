@@ -16,7 +16,6 @@ function GetProfile() {
       setIsLoading(false);
       if (response.face_matches && response.face_matches.length > 0) {
         setResponseMessage(response.face_matches[0].full_name);
-        
       } else {
         setResponseMessage("No matching profile found.");
       }
